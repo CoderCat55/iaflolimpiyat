@@ -1,32 +1,40 @@
 html, body {
-    height: 100%; /* Ensure the body takes full height */
-    margin: 0; /* Remove default margins */
+    height: 100%;
+    margin: 0;
 }
 
 body {
-    display: flex; /* Use flexbox layout */
-    flex-direction: column; /* Arrange children in a column */
+    display: flex;
+    flex-direction: column;
     font-family: Arial, sans-serif;
     padding: 0;
-    background-color: #F5EFFF; /* Light blue background */
+    background-color: #F5EFFF;
+    min-height: 100vh; /* Ensures body covers full viewport height */
 }
 
 h1 {
     text-align: center;
-    color: #A294F9; /* Light purple for h1 */
+    color: #A294F9;
+    font-size: 2rem; /* Responsive font size */
+    margin: 15px 0; /* Added spacing */
 }
 
 h2 {
-    color: #A294F9; /* Light purple for h2 */
+    color: #A294F9;
+    font-size: 1.5rem; /* Responsive font size */
 }
 
 p {
-    color: #9AA6B2; /* Gray for paragraphs */
+    color: #9AA6B2;
+    line-height: 1.5; /* Better readability */
 }
 
 .main-content {
-    flex: 1; /* Allow main content to grow and fill available space */
-    padding: 20px;
+    flex: 1;
+    padding: 15px; /* Reduced padding for mobile */
+    max-width: 1200px; /* Prevent content from stretching too wide */
+    margin: 0 auto; /* Center content */
+    width: 100%; /* Full width on small screens */
 }
 
 .info-section {
@@ -37,24 +45,64 @@ p {
     display: flex;
     justify-content: center;
     gap: 10px;
+    flex-wrap: wrap; /* Allow buttons to wrap on small screens */
 }
 
 button {
     padding: 10px 15px;
-    background-color: #A294F9; /* Button background color */
-    color: white; /* Button text color */
+    background-color: #A294F9;
+    color: white;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 1rem; /* Responsive button text */
+    min-width: 120px; /* Prevent buttons from becoming too narrow */
 }
 
 button:hover {
-    background-color: #8B7CC3; /* Darker shade for button hover effect */
+    background-color: #8B7CC3;
 }
 
 footer {
     text-align: center;
-    background-color: #BCCCDC; /* Footer background color */
-    color: white; /* Footer text color */
+    background-color: #BCCCDC;
+    color: white;
     padding: 10px 0;
+    font-size: 0.9rem; /* Smaller text on mobile */
+}
+
+/* ===== Media Queries (Responsive Breakpoints) ===== */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 1.8rem; /* Smaller heading on tablets */
+    }
+
+    .main-content {
+        padding: 10px; /* Less padding on small screens */
+    }
+
+    .button-section {
+        flex-direction: column; /* Stack buttons vertically */
+        align-items: center;
+        gap: 8px;
+    }
+
+    button {
+        width: 100%; /* Full-width buttons on mobile */
+        max-width: 200px; /* Buttons don't stretch too wide */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem; /* Even smaller heading on phones */
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    body {
+        padding: 0 5px; /* Tiny side padding to prevent edge-clipping */
+    }
 }
